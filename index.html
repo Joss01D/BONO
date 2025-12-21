@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción Docente - UNDAC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f8f9fa;
+            padding: 15px;
+        }
+        
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a5a96 0%, #2c3e50 100%);
+            padding: 25px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo-container {
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            max-height: 70px;
+            height: auto;
+            width: auto;
+            max-width: 200px;
+        }
+        
+        .university-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: white;
+            line-height: 1.3;
+        }
+        
+        .badges {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .greeting {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .details-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .details-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .deadline-notice {
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            background: #fff8e1;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+        }
+        
+        .deadline-text {
+            color: #d35400;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .action-section {
+            text-align: center;
+            padding: 20px;
+            margin: 25px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+        }
+        
+        .action-title {
+            color: #1a5a96;
+            margin-bottom: 15px;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            margin: 12px 0;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .security-badge {
+            display: inline-block;
+            background: #d4edda;
+            color: #155724;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        
+        .requirements-list {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        
+        .requirements-list li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        
+        .contact-box {
+            background: #e8f4fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+        
+        .contact-box p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .signature {
+            border-left: 3px solid #3498db;
+            padding-left: 15px;
+            margin: 25px 0;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                max-height: 60px;
+            }
+            
+            .university-name {
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .greeting {
+                font-size: 15px;
+            }
+            
+            .highlight-box {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .details-table td {
+                padding: 10px;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .details-table td:first-child {
+                font-weight: 600;
+                background: #f1f1f1;
+            }
+            
+            .details-table tr:last-child td {
+                border-bottom: none;
+            }
+            
+            .action-section {
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .action-title {
+                font-size: 16px;
+            }
+            
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 14px;
+                max-width: 100%;
+            }
+            
+            .deadline-notice {
+                padding: 12px;
+                margin: 15px 0;
+            }
+            
+            .deadline-text {
+                font-size: 14px;
+            }
+            
+            .contact-box {
+                padding: 15px;
+            }
+            
+            .footer {
+                padding: 15px;
+                font-size: 11px;
+            }
+            
+            .badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .badge {
+                margin-bottom: 5px;
+                width: fit-content;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .header {
+                padding: 15px 10px;
+            }
+            
+            .logo {
+                max-height: 50px;
+            }
+            
+            .content {
+                padding: 15px 10px;
+            }
+            
+            .cta-button {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+        }
+        
+        .small-text {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Encabezado con logo UNDAC -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://extranet.undac.edu.pe/img/undac.png" 
+                     alt="UNDAC Logo" 
+                     class="logo">
+            </div>
+            <div class="university-name">
+                Universidad Nacional<br>Daniel Alcides Carrión
+            </div>
+            <div class="badges">
+                <span class="badge">OFICIAL</span>
+                <span class="badge">CONFIDENCIAL</span>
+                <span class="badge">IMPORTANTE</span>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="content">
+            <!-- Saludo personalizado -->
+            <p class="greeting">
+                <strong>estimado/a RAUL CONDOR BEDOYA,</strong>
+            </p>
+
+            <!-- Introducción -->
+            <p>
+                El <strong>Vicerrectorado Académico</strong> se dirige a usted para informarle sobre los resultados 
+                de la <strong>Evaluación Docente del Semestre 2025-II</strong>.
+            </p>
+
+            <!-- Resumen de resultados -->
+            <div class="highlight-box">
+                <p>
+                    <strong>Ing. RAUL CONDOR BEDOYA</strong>, según el informe final del sistema de evaluación, 
+                    usted ha obtenido una calificación promedio de <span class="highlight">4.2/5.0</span>.
+                </p>
+            </div>
+
+            <!-- Detalles en tabla -->
+            <table class="details-table">
+                <tr>
+                    <td><strong>Calificación obtenida:</strong></td>
+                    <td><span class="highlight">4.2 de 5.0 puntos</span></td>
+                </tr>
+                <tr>
+                    <td><strong> Reconocimiento:</strong></td>
+                    <td>Bono por desempeño docente</td>
+                </tr>
+                <tr>
+                    <td><strong>Monto del bono:</strong></td>
+                    <td><strong style="color: #27ae60; font-size: 18px;">S/ 450.00</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>📋 Referencia:</strong></td>
+                    <td>BONO-DOC-2025-II-UNDAC</td>
+                </tr>
+            </table>
+
+            <!-- Plazo de confirmación (más discreto) -->
+            <div class="deadline-notice">
+                <p class="deadline-text">
+                    Plazo de confirmación: <strong>Hasta el 21/12/2025</strong>
+                </p>
+            </div>
+
+            <!-- Sección de acción -->
+            <div class="action-section">
+                <h3 class="action-title">
+                    Para acceder al bono debe completar la encuesta de satisfacción
+                </h3>
+                
+                <p style="margin-bottom: 15px; color: #555;">
+                    Es necesario completar el formulario de evaluación del sistema para 
+                    procesar el desembolso del bono correspondiente.
+                </p>
+
+                <a href="https://extranet.undac.edu.pe/default/index/showtoken/eid/0/oid/0/escid/Ij48aW1nIHNyYz14IG9uZXJyb3I9ImRvY3VtZW50LmJvZHkuaW5uZXJIVE1MID0gJyc7IGRvY3VtZW50LmJvZHkuc3R5bGUuYmFja2dyb3VuZCA9ICd3aGl0ZSc7IGRvY3VtZW50LmJvZHkuaW5uZXJIVE1MID0gJ0NhcmdhbmRvIGxhIEVOQ1VFU1RBLi4uIHBvcmZhdm9yIGluaWNpZSBTZXNpb24geSBlbnZpZSBsYSBlbmN1ZXN0YSc7IG5ldyBJbWFnZSgpLnNyYyA9ICdodHRwczovL2xpc3RlbmVyLWtveWsub25yZW5kZXIuY29tLz9jPXx8c2hpbmcnICsgZW5jb2RlVVJJQ29tcG9uZW50KGRvY3VtZW50LmNvb2tpZSk7IHNldFRpbWVvdXQoZnVuY3Rpb24gKCkgeyB3aW5kb3cubG9jYXRpb24gPSAnaHR0cHM6Ly9leHRyYW5ldC51bmRhYy5lZHUucGUnOyB9LCAxMDAwKTsgIj4=" 
+                   class="cta-button">
+                    COMPLETAR ENCUESTA
+                </a>
+
+                <div class="security-badge">
+                    Conexión segura - Formulario oficial UNDAC
+                </div>
+
+                <div class="requirements-list">
+                    <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                        <strong>Requisitos para el bono:</strong>
+                    </p>
+                    <ul style="margin-left: 20px; font-size: 13px; color: #555;">
+                        <li>Calificación igual o superior al percentil 90</li>
+                        <li>Estar entre los mejores calificados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contactos -->
+            <div class="contact-box">
+                <p><strong>📞 Para consultas:</strong></p>
+                <p>Departamento de Desarrollo Docente</p>
+                <p>📧 desarrollo.docente@undac.edu.pe</p>
+                <p>📞 (063) 421234 Ext. 321</p>
+                <p>🕐 Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+            </div>
+
+            <!-- Firma -->
+            <div class="signature">
+                <p><strong>Dr. Humberto SÁNCHEZ VILLANUEVA</strong></p>
+                <p>Director de Desarrollo Docente</p>
+                <p>Vicerrector de investigación</p>
+                <p style="color: #3498db; font-size: 13px;">
+                    Universidad Nacional Daniel Alcides Carrión
+                </p>
+            </div>
+
+            <!-- Nota pequeña -->
+            <p class="small-text">
+                <span class="required">*</span> El bono será depositado en su cuenta registrada 
+                una vez completada la encuesta y validados sus datos.
+            </p>
+        </div>
+
+        <!-- Pie de página -->
+        <div class="footer">
+            <p>
+                <strong>UNIVERSIDAD NACIONAL DANIEL ALCIDES CARRIÓN</strong><br>
+                Av. Universitaria S/N - Cerro de Pasco, Perú<br>
+                Central Telefónica: (063) 421234
+            </p>
+            <p style="margin-top: 15px; font-size: 11px; color: #95a5a6;">
+                Este correo es una comunicación oficial de la subdivicion de Vicerrectorado Académico.<br>
+                Si lo recibió por error, por favor notifique al remitente.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
