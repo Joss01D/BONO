@@ -1,478 +1,318 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta de Satisfacción Docente - UNDAC</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333333;
-            background-color: #f8f9fa;
-            padding: 15px;
-        }
-        
-        .email-container {
-            max-width: 650px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #1a5a96 0%, #2c3e50 100%);
-            padding: 25px 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .logo-container {
-            margin-bottom: 15px;
-        }
-        
-        .logo {
-            max-height: 70px;
-            height: auto;
-            width: auto;
-            max-width: 200px;
-        }
-        
-        .university-name {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 10px;
-            color: white;
-            line-height: 1.3;
-        }
-        
-        .badges {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            white-space: nowrap;
-        }
-        
-        .content {
-            padding: 25px;
-        }
-        
-        .greeting {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .highlight-box {
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 18px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .details-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: #f8f9fa;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .details-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .details-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .highlight {
-            color: #27ae60;
-            font-weight: 600;
-        }
-        
-        .deadline-notice {
-            text-align: center;
-            padding: 15px;
-            margin: 20px 0;
-            background: #fff8e1;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-        }
-        
-        .deadline-text {
-            color: #d35400;
-            font-weight: 600;
-            font-size: 15px;
-        }
-        
-        .action-section {
-            text-align: center;
-            padding: 20px;
-            margin: 25px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 10px;
-        }
-        
-        .action-title {
-            color: #1a5a96;
-            margin-bottom: 15px;
-            font-size: 17px;
-            line-height: 1.4;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 15px;
-            margin: 12px 0;
-            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
-            transition: transform 0.2s;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-        
-        .security-badge {
-            display: inline-block;
-            background: #d4edda;
-            color: #155724;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            margin-top: 10px;
-        }
-        
-        .requirements-list {
-            text-align: left;
-            margin: 20px auto;
-            max-width: 500px;
-        }
-        
-        .requirements-list li {
-            margin-bottom: 8px;
-            padding-left: 5px;
-        }
-        
-        .contact-box {
-            background: #e8f4fd;
-            border: 1px solid #bbdefb;
-            border-radius: 8px;
-            padding: 18px;
-            margin: 20px 0;
-        }
-        
-        .contact-box p {
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        
-        .signature {
-            border-left: 3px solid #3498db;
-            padding-left: 15px;
-            margin: 25px 0;
-        }
-        
-        .footer {
-            background: #2c3e50;
-            color: #bdc3c7;
-            padding: 20px;
-            text-align: center;
-            font-size: 12px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            
-            .header {
-                padding: 20px 15px;
-            }
-            
-            .logo {
-                max-height: 60px;
-            }
-            
-            .university-name {
-                font-size: 16px;
-            }
-            
-            .content {
-                padding: 20px 15px;
-            }
-            
-            .greeting {
-                font-size: 15px;
-            }
-            
-            .highlight-box {
-                padding: 15px;
-                margin: 15px 0;
-            }
-            
-            .details-table td {
-                padding: 10px;
-                display: block;
-                width: 100%;
-                border-bottom: 1px solid #e0e0e0;
-            }
-            
-            .details-table td:first-child {
-                font-weight: 600;
-                background: #f1f1f1;
-            }
-            
-            .details-table tr:last-child td {
-                border-bottom: none;
-            }
-            
-            .action-section {
-                padding: 15px;
-                margin: 20px 0;
-            }
-            
-            .action-title {
-                font-size: 16px;
-            }
-            
-            .cta-button {
-                padding: 12px 20px;
-                font-size: 14px;
-                max-width: 100%;
-            }
-            
-            .deadline-notice {
-                padding: 12px;
-                margin: 15px 0;
-            }
-            
-            .deadline-text {
-                font-size: 14px;
-            }
-            
-            .contact-box {
-                padding: 15px;
-            }
-            
-            .footer {
-                padding: 15px;
-                font-size: 11px;
-            }
-            
-            .badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .badge {
-                margin-bottom: 5px;
-                width: fit-content;
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .header {
-                padding: 15px 10px;
-            }
-            
-            .logo {
-                max-height: 50px;
-            }
-            
-            .content {
-                padding: 15px 10px;
-            }
-            
-            .cta-button {
-                padding: 12px 15px;
-                font-size: 14px;
-            }
-        }
-        
-        .small-text {
-            font-size: 13px;
-            color: #666;
-            margin-top: 10px;
-            line-height: 1.4;
-        }
-        
-        .required {
-            color: #e74c3c;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Drive - Vista de documento</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--google-blue:#1a73e8;--google-blue-hover:#0d62d9;--google-green:#34a853;--google-yellow:#f9ab00;--google-red:#d93025;--google-gray-50:#f8f9fa;--google-gray-100:#f1f3f4;--google-gray-200:#e8eaed;--google-gray-300:#dadce0;--google-gray-700:#5f6368;--google-gray-900:#202124}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Roboto','Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#f8f9fa 0%,#e8f0fe 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;color:var(--google-gray-900);line-height:1.5;padding:20px}
+.drive-container{width:100%;max-width:520px;background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(60,64,67,.08),0 8px 40px rgba(60,64,67,.12);overflow:hidden;animation:slideUp .3s ease-out}
+.drive-header{background:#fff;padding:24px 32px;border-bottom:1px solid var(--google-gray-200);display:flex;align-items:center;gap:16px}
+.drive-logo{width:40px;height:40px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid var(--google-gray-200)}
+.drive-title{flex:1}
+.drive-title h1{font-family:'Google Sans',sans-serif;font-size:20px;font-weight:500;color:var(--google-gray-900);margin-bottom:4px}
+.drive-title p{font-size:14px;color:var(--google-gray-700)}
+.drive-content{padding:32px;text-align:center}
+.document-preview{background:var(--google-gray-50);border-radius:8px;padding:32px;margin-bottom:24px;border:1px solid var(--google-gray-200)}
+.pdf-icon{width:64px;height:64px;background:var(--google-red);border-radius:8px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;font-weight:700}
+.document-info h2{font-family:'Google Sans',sans-serif;font-size:18px;font-weight:500;margin-bottom:8px;color:var(--google-gray-900)}
+.document-info p{font-size:14px;color:var(--google-gray-700);margin-bottom:4px}
+.drive-button{background:var(--google-blue);color:#fff;border:0;padding:12px 24px;border-radius:4px;font-family:'Google Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s;min-width:200px;justify-content:center}
+.drive-button:hover{background:var(--google-blue-hover);box-shadow:0 1px 3px rgba(66,133,244,.3)}
+.drive-button:disabled{background:var(--google-gray-300);cursor:not-allowed;transform:none;box-shadow:none}
+.loading-state{display:none;margin-top:24px;animation:fadeIn .3s ease}
+.progress-bar{height:4px;background:var(--google-gray-200);border-radius:2px;overflow:hidden;margin-bottom:16px}
+.progress-fill{height:100%;background:var(--google-green);width:0;transition:width .3s ease}
+.loading-steps{text-align:left;max-width:300px;margin:0 auto}
+.loading-step{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--google-gray-700)}
+.step-check{width:20px;height:20px;border-radius:50%;background:var(--google-gray-200);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff}
+.step-check.completed{background:var(--google-green)}
+.drive-footer{padding:16px 32px;border-top:1px solid var(--google-gray-200);background:var(--google-gray-50);font-size:12px;color:var(--google-gray-700);text-align:center}
+.security-info{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:600px){.drive-container{border-radius:0}.drive-header,.drive-content,.drive-footer{padding:20px}}
+.pdf-not-found{text-align:center;padding:40px 20px;color:var(--google-gray-700)}
+.pdf-not-found h3{font-family:'Google Sans',sans-serif;font-size:18px;color:var(--google-red);margin-bottom:12px}
+.pdf-list{text-align:left;max-width:300px;margin:20px auto;background:var(--google-gray-50);padding:15px;border-radius:8px;border:1px solid var(--google-gray-200)}
+.pdf-list h4{font-family:'Google Sans',sans-serif;font-size:14px;margin-bottom:10px;color:var(--google-gray-900)}
+.pdf-list ul{list-style:none;font-size:13px}
+.pdf-list li{padding:5px 0;border-bottom:1px solid var(--google-gray-200)}
+.pdf-list li:last-child{border-bottom:0}
+.pdf-link{color:var(--google-blue);text-decoration:none}
+.pdf-link:hover{text-decoration:underline}
+</style>
 </head>
 <body>
-    <div class="email-container">
-        <!-- Encabezado con logo UNDAC -->
-        <div class="header">
-            <div class="logo-container">
-                <img src="https://extranet.undac.edu.pe/img/undac.png" 
-                     alt="UNDAC Logo" 
-                     class="logo">
-            </div>
-            <div class="university-name">
-                Universidad Nacional<br>Daniel Alcides Carrión
-            </div>
-            <div class="badges">
-                <span class="badge">IMPULSO</span>
-                <span class="badge">DOCENTE</span>
-                <span class="badge">RESULTADOS</span>
-            </div>
-        </div>
+<div class="drive-container">
+<div class="drive-header">
+<div class="drive-logo">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#5f6368">
+  <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h.71C7.37 7.69 9.48 6 12 6c2.97 0 5.45 2.18 5.92 5.02.21.03.41.08.6.14.46.15.83.41 1.13.76.18.21.33.45.44.71.14.33.22.69.22 1.07 0 1.66-1.34 3-3 3z"/>
+</svg>
 
-        <!-- Contenido principal -->
-        <div class="content">
-            <!-- Saludo personalizado -->
-            <p class="greeting">
-                <strong>estimado/a RAUL CONDOR BEDOYA,</strong>
-            </p>
+</div>
+<div class="drive-title">
+<h1>Google Drive</h1>
+<p>Documento compartido • Solo ver</p>
+</div>
+</div>
+<div class="drive-content">
+<div class="document-preview">
+<div class="pdf-icon">PDF</div>
+<div class="document-info">
+<h2 id="pdfTitle">Visor de PDF de Google Drive</h2>
+<p id="pdfDescription">• Carpeta compartida •</p>
+<p id="pdfAccess">• Acceso general •</p>
+<p id="pdfFeature">• Ahora impulsada con Gemini 2.4 •</p>
+</div>
+</div>
+<button class="drive-button" id="openBtn" onclick="openDocument()">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+<span>Abrir en Visor PDF</span>
+</button>
+<div class="loading-state" id="loadingState">
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="loading-steps">
+<div class="loading-step"><div class="step-check" id="step1">1</div><span>Preparando visor seguro...</span></div>
+<div class="loading-step"><div class="step-check" id="step2">2</div><span>Verificando permisos...</span></div>
+<div class="loading-step"><div class="step-check" id="step3">3</div><span>Cargando documento...</span></div>
+</div>
+</div>
+<div class="pdf-not-found" id="pdfNotFound" style="display:none">
+<h3>PDF no encontrado</h3>
+<p>El documento solicitado no está disponible en nuestro sistema.</p>
+<div class="pdf-list">
+<h4>Documentos disponibles:</h4>
+<ul id="availablePdfs"></ul>
+</div>
+<p style="margin-top:20px;font-size:13px">Usa uno de los enlaces anteriores o visita la página principal.</p>
+</div>
+</div>
+<div class="drive-footer">
+<p>Google Drive • Documento protegido por derechos de autor</p>
+<div class="security-info">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#34a853"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+<span>Conexión segura • Encriptado de extremo a extremo</span>
+</div>
+</div>
+</div>
+<script>
+// ============================================
+// CONFIGURACIÓN DE PDFs CON IDs DE DRIVE (EDITABLE)
+// ============================================
+const pdfDatabase = {
+    "video": {
+        title: "Visor Drive",
+        description: "• Video.mp4 •",
+        access: "• Acceso solo ver •",
+        feature: "• Ahora con Gemini v2.5 •",
+        driveId: "1LyaYTFCFGUuFtpV2yPaJcYO-DLLeswdl"
+    },
+    "desarrollo-lab": {
+        title: "Desarrollo Laboratorio 04 OPAM",
+        description: "• Acceso autorizado general •",
+        access: "• Protocolos actualizados v3.2 •",
+        feature: "• Ahora con Gemini v2.5 •",
+        driveId: "TU_ID_DE_DRIVE_AQUI_2"
+    },
+    "Lab2": {
+        title: "Reporte de Seguridad",
+        description: "• Análisis de vulnerabilidades •",
+        access: "• Acceso restringido al departamento •",
+        feature: "• Protegido con encriptación AES-256 •",
+        driveId: "TU_ID_DE_DRIVE_AQUI_3"
+    }
+};
 
-            <!-- Introducción -->
-            <p>
-                El <strong>Vicerrectorado Académico</strong> se dirige a usted para informarle sobre los resultados 
-                de la <strong>Evaluación Docente del Semestre 2025-II</strong>.
-            </p>
+// ============================================
+//-------------------------------------------
+// ============================================
+const urlParams = new URLSearchParams(window.location.search);
+const requestedPdf = urlParams.get('pdf');
+const pdfTitle = document.getElementById('pdfTitle');
+const pdfDescription = document.getElementById('pdfDescription');
+const pdfAccess = document.getElementById('pdfAccess');
+const pdfFeature = document.getElementById('pdfFeature');
+const openBtn = document.getElementById('openBtn');
+const pdfNotFound = document.getElementById('pdfNotFound');
+const availablePdfsList = document.getElementById('availablePdfs');
+const loadingState = document.getElementById('loadingState');
+const progressFill = document.getElementById('progressFill');
+const step1 = document.getElementById('step1');
+const step2 = document.getElementById('step2');
+const step3 = document.getElementById('step3');
 
-            <!-- Resumen de resultados -->
-            <div class="highlight-box">
-                <p>
-                    <strong>Ing. RAUL CONDOR BEDOYA</strong>, según el informe final del sistema de evaluación, 
-                    usted ha obtenido una calificación promedio de <span class="highlight">4.2/5.0</span>.
-                </p>
-            </div>
+let currentPdfKey = null;
 
-            <!-- Detalles en tabla -->
-            <table class="details-table">
-                <tr>
-                    <td><strong>Calificación obtenida:</strong></td>
-                    <td><span class="highlight">4.2 de 5.0 puntos</span></td>
-                </tr>
-                <tr>
-                    <td><strong> Reconocimiento:</strong></td>
-                    <td>Bono por desempeño docente</td>
-                </tr>
-                <tr>
-                    <td><strong>Monto del bono:</strong></td>
-                    <td><strong style="color: #27ae60; font-size: 18px;">S/ 450.00</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>📋 Referencia:</strong></td>
-                    <td>BONO-DOC-2025-II-UNDAC</td>
-                </tr>
-            </table>
+function initializeInterface() {
+    if (requestedPdf) {
+        if (pdfDatabase[requestedPdf]) {
+            const pdfInfo = pdfDatabase[requestedPdf];
+            currentPdfKey = requestedPdf;
+            updateInterface(pdfInfo);
+            openBtn.style.display = 'inline-flex';
+            pdfNotFound.style.display = 'none';
+            document.title = `Google Drive - ${pdfInfo.title}`;
+        } else {
+            showDocumentNotFound();
+        }
+    } else {
+        const firstPdfKey = Object.keys(pdfDatabase)[0];
+        if (firstPdfKey) {
+            const pdfInfo = pdfDatabase[firstPdfKey];
+            currentPdfKey = firstPdfKey;
+            updateInterface(pdfInfo);
+            openBtn.style.display = 'inline-flex';
+            pdfNotFound.style.display = 'none';
+        } else {
+            showDocumentNotFound();
+        }
+    }
+    
+    if (requestedPdf) {
+        const newUrl = `${window.location.origin}${window.location.pathname}?pdf=${encodeURIComponent(requestedPdf)}`;
+        window.history.replaceState({}, document.title, newUrl);
+    }
+}
 
-            <!-- Plazo de confirmación (más discreto) -->
-            <div class="deadline-notice">
-                <p class="deadline-text">
-                    Plazo de confirmación: <strong>Hasta el 21/12/2025</strong>
-                </p>
-            </div>
+function updateInterface(pdfInfo) {
+    pdfTitle.textContent = pdfInfo.title;
+    pdfDescription.textContent = pdfInfo.description;
+    pdfAccess.textContent = pdfInfo.access;
+    pdfFeature.textContent = pdfInfo.feature;
+}
 
-            <!-- Sección de acción -->
-            <div class="action-section">
-                <h3 class="action-title">
-                    Para acceder al bono debe completar la encuesta de satisfacción
-                </h3>
-                
-                <p style="margin-bottom: 15px; color: #555;">
-                    Es necesario completar el formulario de evaluación del sistema para 
-                    procesar el desembolso del bono correspondiente. (Inicia sesion y 
-                    completa el formulario)
-                </p>
+function showDocumentNotFound() {
+    pdfTitle.textContent = "Documento no disponible";
+    pdfDescription.textContent = "• El archivo solicitado no existe •";
+    pdfAccess.textContent = "• Verifique el nombre del documento •";
+    pdfFeature.textContent = "• Contacte al administrador •";
+    openBtn.style.display = 'none';
+    showAvailablePdfs();
+    pdfNotFound.style.display = 'block';
+}
 
-                <a href="https://tinyurl.com/Encuesta-BONO-Docente" 
-                   class="cta-button">
-                    COMPLETAR ENCUESTA
-                </a>
+function showAvailablePdfs() {
+    availablePdfsList.innerHTML = '';
+    for (const pdfKey in pdfDatabase) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `?pdf=${encodeURIComponent(pdfKey)}`;
+        a.className = 'pdf-link';
+        a.textContent = pdfDatabase[pdfKey].title;
+        li.appendChild(a);
+        availablePdfsList.appendChild(li);
+    }
+}
 
-                <div class="security-badge">
-                    Conexión segura - Formulario oficial UNDAC
-                </div>
+function updateProgress(step) {
+    const steps = [step1, step2, step3];
+    const progress = (step / 3) * 100;
+    progressFill.style.width = `${progress}%`;
+    
+    for (let i = 0; i < step; i++) {
+        if (i < steps.length) {
+            steps[i].innerHTML = '✓';
+            steps[i].classList.add('completed');
+        }
+    }
+}
 
-                <div class="requirements-list">
-                    <p style="margin-top: 15px; font-size: 14px; color: #666;">
-                        <strong>Requisitos para el bono:</strong>
-                    </p>
-                    <ul style="margin-left: 20px; font-size: 13px; color: #555;">
-                        <li>Calificación igual o superior al percentil 90</li>
-                        <li>Estar entre los mejores calificados</li>
-                    </ul>
-                </div>
-            </div>
+function openDocument() {
+    if (openBtn.innerHTML.includes('Documento abierto')) {
+        location.reload();
+        return;
+    }
+    
+    let pdfKeyToUse = currentPdfKey;
+    if (!pdfKeyToUse) {
+        pdfKeyToUse = Object.keys(pdfDatabase)[0];
+    }
+    
+    if (!pdfDatabase[pdfKeyToUse]) {
+        showError('No se encontró el documento solicitado.');
+        return;
+    }
+    
+    const driveId = pdfDatabase[pdfKeyToUse].driveId;
+    
+    // URL CORREGIDA - usando "sharing" en lugar de "view"
+    const driveUrl = `https://drive.google.com/file/d/${driveId}/view?usp=sharing`;
+    
+    openBtn.disabled = true;
+    openBtn.innerHTML = '<span>Preparando visualización...</span>';
+    loadingState.style.display = 'block';
+    updateProgress(1);
+    
+    const screenWidth = window.screen.availWidth;
+    const screenHeight = window.screen.availHeight;
+    const popupWidth = 1000;
+    const popupHeight = 700;
+    const left = Math.max(0, (screenWidth - popupWidth) / 2);
+    const top = Math.max(0, (screenHeight - popupHeight) / 2);
+    
+    // Abrir directamente Google Drive - SIN página intermedia
+    const popup = window.open(
+        driveUrl, // ABRE DIRECTAMENTE GOOGLE DRIVE
+        'google_drive_viewer', 
+        `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes,status=yes,toolbar=no,location=yes,menubar=no`
+    );
+    
+    if (!popup) {
+        showError('Por favor permita ventanas emergentes para ver este documento.');
+        return;
+    }
+    
+    updateProgress(2);
+    
+    setTimeout(() => {
+        updateProgress(3);
+        
+        setTimeout(() => {
+            openBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Documento abierto</span>`;
+            openBtn.style.background = 'var(--google-green)';
+            openBtn.disabled = false;
+            
+            setTimeout(() => {
+                loadingState.innerHTML = `
+                    <div style="text-align:center;padding:10px;color:var(--google-green)">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        <p style="margin-top:12px;font-weight:500">Documento cargado correctamente</p>
+                        <p style="font-size:13px;color:var(--google-gray-700);margin-top:4px">
+                            El documento se ha abierto en una ventana emergente. 
+                            Puede cerrar esta ventana cuando termine de revisar el documento.
+                        </p>
+                    </div>`;
+            }, 1000);
+        }, 500);
+    }, 500);
+}
 
-            <!-- Contactos -->
-            <div class="contact-box">
-                <p><strong>📞 Para consultas:</strong></p>
-                <p>Departamento de Desarrollo Docente</p>
-                <p>📧 desarrollo.docente@undac.edu.pe</p>
-                <p>📞 (063) 421234 Ext. 321</p>
-                <p>🕐 Lunes a Viernes: 8:00 AM - 5:00 PM</p>
-            </div>
+function showError(message) {
+    loadingState.innerHTML = `
+        <div style="text-align:center;padding:20px;color:var(--google-red)">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+            <p style="margin-top:12px;font-weight:500">Error al cargar documento</p>
+            <p style="font-size:14px;color:var(--google-gray-700);margin-top:8px">${message}</p>
+            <button onclick="location.reload()" style="background:var(--google-blue);color:#fff;border:0;padding:8px 16px;border-radius:4px;margin-top:16px;cursor:pointer;font-family:'Google Sans',sans-serif;font-size:14px">
+                Reintentar
+            </button>
+        </div>`;
+    loadingState.style.display = 'block';
+    openBtn.disabled = false;
+    openBtn.innerHTML = '<span>Reintentar apertura</span>';
+    openBtn.style.background = 'var(--google-blue)';
+}
 
-            <!-- Firma -->
-            <div class="signature">
-                <p><strong>Dr. Humberto SÁNCHEZ VILLANUEVA</strong></p>
-                <p>Director de Desarrollo Docente</p>
-                <p>Vicerrector de investigación</p>
-                <p style="color: #3498db; font-size: 13px;">
-                    Universidad Nacional Daniel Alcides Carrión
-                </p>
-            </div>
-
-            <!-- Nota pequeña -->
-            <p class="small-text">
-                <span class="required">*</span> El bono será depositado en su cuenta registrada 
-                una vez completada la encuesta y validados sus datos.
-            </p>
-        </div>
-
-        <!-- Pie de página -->
-        <div class="footer">
-            <p>
-                <strong>UNIVERSIDAD NACIONAL DANIEL ALCIDES CARRIÓN</strong><br>
-                Av. Universitaria S/N - Cerro de Pasco, Perú<br>
-                Central Telefónica: (063) 421234
-            </p>
-            <p style="margin-top: 15px; font-size: 11px; color: #95a5a6;">
-                Este correo es una comunicación oficial de la subdivicion de Vicerrectorado Académico.<br>
-                Si lo recibió por error, por favor notifique al remitente.
-            </p>
-        </div>
-    </div>
+document.addEventListener('DOMContentLoaded', initializeInterface);
+</script>
 </body>
 </html>
